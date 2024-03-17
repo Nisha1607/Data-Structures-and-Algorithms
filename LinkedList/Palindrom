@@ -1,0 +1,36 @@
+public boolean isPalindrome(ListNode head) {
+     
+     if(head==null||head.next==null){
+         return true;
+     }
+       
+        ListNode slow=head,fast=head;
+        while(fast!=null&&fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+
+          if(fast != null && fast.next == null){
+            slow = slow.next;
+        }
+
+        ListNode tmp = slow;
+        ListNode prev=tmp,curr=tmp.next,front=null;
+        prev.next=null;
+      
+        while(curr!=null){
+            front=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=front;
+        }
+        tmp=prev;
+        while(tmp!=null&&head!=null){
+            if(tmp.val!=head.val){
+                return false;
+            }
+            tmp=tmp.next;
+            head=head.next;
+        }
+        return true;
+    }
