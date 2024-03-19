@@ -1,0 +1,27 @@
+ public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        Map<Integer,Integer> map=new HashMap<>();
+        Stack<Integer> stk = new Stack<>();
+        int greater = -1;
+        int[] res=new int[nums1.length];
+        for(int i=nums2.length-1;i>=0;i--){
+            map.put(nums2[i],greater);
+            if(i>0&&nums2[i]>nums2[i-1]){
+                greater=nums2[i];
+                stk.add(greater);
+            }
+            else if(i>0&&nums2[i-1]>greater ){
+                while(!stk.isEmpty() && nums2[i-1]>stk.peek()){
+                    stk.pop();
+                }
+                if(!stk.isEmpty())
+                    greater=stk.peek();
+                else
+                    greater=-1;
+            }
+        }
+
+        for(int i=0;i<nums1.length;i++){
+           res[i] = map.get(nums1[i]);
+        }
+        return res;
+    }
