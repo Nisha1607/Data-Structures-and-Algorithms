@@ -2,7 +2,7 @@ void dfs(int node,ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> res){
   vis[node]=true;
   res.add(node);
 
-  for(Iterator itr : adj.get(node)){
+  for(Integer itr : adj.get(node)){
     if(!vis[itr])
       dfs(itr,adj,res);
   }
