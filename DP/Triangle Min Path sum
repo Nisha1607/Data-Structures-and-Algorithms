@@ -1,0 +1,83 @@
+//recursion
+//TC: O(2^(1+2+3+...n))
+//SC: O(n)
+  int solve(int i,int j,int m, List<List<Integer>> triangle){
+        if(i==m-1) return triangle.get(m-1).get(j); 
+        int firstStep = triangle.get(i).get(j)+solve(i+1,j,m,triangle);
+        int secondStep = triangle.get(i).get(j)+solve(i+1,j+1,m,triangle);
+        return Math.min(firstStep,secondStep);
+    }
+
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int m = triangle.size();
+        int n = triangle.get(m-1).size();   
+        return solve(0,0,m,triangle);
+    }
+
+
+//memoization
+//TC: O(m*n)
+//SC: O(m*n) + O(n)
+  int solve(int i,int j,int m, List<List<Integer>> triangle,int[][] dp){
+        if(i==m-1) return triangle.get(m-1).get(j); 
+        if(dp[i][j]!=-1) return dp[i][j];
+        int firstStep = triangle.get(i).get(j)+solve(i+1,j,m,triangle,dp);
+        int secondStep = triangle.get(i).get(j)+solve(i+1,j+1,m,triangle,dp);
+        return dp[i][j] = Math.min(firstStep,secondStep);
+    }
+
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int m = triangle.size();
+        int n = triangle.get(m-1).size();   
+        int[][] dp = new int[m][n];
+        for(int[] row : dp)
+            Arrays.fill(row,-1);
+        return solve(0,0,m,triangle,dp);
+    }
+
+//Tabulation
+//TC: O(m*n)
+//SC: O(m*n) 
+   public int minimumTotal(List<List<Integer>> triangle) {
+        int m = triangle.size();
+        int n = triangle.get(m-1).size();   
+        int[][] dp = new int[m][n];
+
+        for(int j=0;j<n;j++)
+            dp[m-1][j] = triangle.get(m-1).get(j);
+
+        for(int i=m-2;i>=0;i--){
+            for(int j=i;j>=0;j--){
+               
+                int firstStep = triangle.get(i).get(j)+dp[i+1][j];
+                int secondStep = triangle.get(i).get(j)+dp[i+1][j+1];
+                dp[i][j] = Math.min(firstStep,secondStep);
+                
+            }
+        }
+        return dp[0][0];
+    }
+
+
+//Spcae optimized soln
+//TC: O(m*n)
+//SC: O(n) 
+public int minimumTotal(List<List<Integer>> triangle) {
+        int m = triangle.size();
+        int n = triangle.get(m-1).size();   
+        int[] dp= new int[n];
+
+        for(int j=0;j<n;j++)
+            dp[j] = triangle.get(m-1).get(j);
+
+        for(int i=m-2;i>=0;i--){
+            int[] curr = new int[n];
+            for(int j=i;j>=0;j--){
+                int firstStep = triangle.get(i).get(j)+dp[j];
+                int secondStep = triangle.get(i).get(j)+dp[j+1];
+                curr[j] = Math.min(firstStep,secondStep);
+            }
+            dp = curr;
+        }
+        return dp[0];
+    }
