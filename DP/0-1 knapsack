@@ -71,3 +71,25 @@
         }
         return dp[n-1][maxWeight];
     }
+
+
+//Space optimized
+// TC : O(maxWeight*n)
+// SC : O(maxWeight)
+static int knapsack(int[] weight, int[] value, int n, int maxWeight) {
+   
+            int[] dp = new int[maxWeight+1];
+            for(int i=weight[0];i<=maxWeight;i++)
+                dp[i] = value[0];
+            
+            for(int ind=1;ind<n;ind++){
+                for(int cap = maxWeight;cap >=0 ;cap--){
+                     int pick = 0;
+                    if(cap-weight[ind]>=0)
+                        pick = value[ind] + dp[cap-weight[ind]];
+                    int noPick = dp[cap];
+                    dp[cap]=Math.max(pick, noPick);
+                }
+            }
+            return dp[maxWeight];
+    }
