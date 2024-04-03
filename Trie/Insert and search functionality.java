@@ -47,7 +47,7 @@ class Trie{
       node.setEnd();
     }
 
-    Node searchWord(String word){
+    boolean searchWord(String word){
         Node node = root;
          for(int i=0;i<word.length();i++){
           if(!node.containsKey(word.charAt(i))){
@@ -59,7 +59,7 @@ class Trie{
       return false;
     }
 
-     Node startsWith(String word){
+     boolean startsWith(String word){
         Node node = root;
          for(int i=0;i<word.length();i++){
           if(!node.containsKey(word.charAt(i))){
