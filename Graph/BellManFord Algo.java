@@ -9,12 +9,12 @@ static int[] bellman_ford(int V, ArrayList<ArrayList<Integer>> edges, int S) {
   int[] dist = new int[V];
   Arrays.fill(dist,(int)(1e9);
 
-  dist[S] = 0'
+  dist[S] = 0;
   for(int i=0;i<V-1;i++){
     int u = edge[i][0];
     int v = edge[i][1];
     int wt = edge[i][2];
-    if(dist[u]!=(int)(1e9) && dist[v]= dist[u]+wt)
+    if(dist[u]!=(int)(1e9) && dist[v]> dist[u]+wt)
       dist[v]=dist[u]+wt;
   }
 
