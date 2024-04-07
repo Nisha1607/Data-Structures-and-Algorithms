@@ -10,7 +10,7 @@ class Node{
   Node(){}
 
   boolean containsKey(char ch){
-    return (char[ch-'a']==null)
+    return (links[ch-'a']!=null)
   }
 
   Node get(char ch){
