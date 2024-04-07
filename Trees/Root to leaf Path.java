@@ -5,7 +5,7 @@ boolean rootToLeaf(TreeNode root, List<Integer> res,int x){
   if(root.val == x)
     return true;
 
-  if(rootToLeaf(root.left,list,x) ||rootToLeaf(root.left,list,x)) 
+  if(rootToLeaf(root.left,list,x) ||rootToLeaf(root.right,list,x)) 
       return true;
 
   res.remove(res.size()-1);
