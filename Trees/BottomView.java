@@ -12,7 +12,7 @@ List<Integer> bottomView(TreeNode root){
   ArrayList<Integer> res = new ArrayList<>();
   if(root==null) return res;
   Queue<Pair> que = LinkedList<>();
-  que.offer(root,new Pair(root,0));
+  que.offer(new Pair(root,0));
   Map<Integer,Integer> map = new TreeMap<>();
   while(!que.isEmpty()){
     Pair p = que.poll();
