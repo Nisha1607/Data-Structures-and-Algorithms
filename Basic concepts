@@ -1,0 +1,2 @@
+1) define min heap in java using PQ -  PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+2) define max heap in java using PQ -  PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.reverseOrder());
