@@ -52,3 +52,44 @@
 //bfs
 //TC : O(V+E)
 //SC : O(V)
+
+ 
+    static int[] findOrder(int n, int m, ArrayList<ArrayList<Integer>> prerequisites) 
+    {
+        // add your code here
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        
+        for(int i=0;i<n;i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(ArrayList<Integer> edge : prerequisites){
+            adj.get(edge.get(1)).add(edge.get(0));
+        }
+        
+        int[] indegree = new int[n];
+        for(int i=0;i<n;i++){
+            for(Integer itr : adj.get(i))
+                indegree[itr]++;
+        }
+        Queue<Integer> q= new LinkedList<>();
+        for(int i=0;i<n;i++){
+            if(indegree[i]==0)
+                q.add(i);
+        }
+        int[] topo = new int[n];
+        int k=0;
+        while(!q.isEmpty()){
+            int node = q.remove();
+            topo[k++]=node;
+            for(Integer itr : adj.get(node)){
+                indegree[itr]--;
+                if(indegree[itr]==0)
+                    q.add(itr);
+            }
+        }
+        
+        if(k==n)
+            return topo;
+        return new int[]{};
+    }
