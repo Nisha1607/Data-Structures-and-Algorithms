@@ -34,3 +34,9 @@
         for(int[] edge : prerequisites){
             adj.get(edge[1]).add(edge[0]);
         }
+
+    iii) when input matrix is n*n matrix , mostly 0/1 then dont convert it into adjaceny list
+
+3) Strings -
+        String[] words = s.trim().split("\\s+"); // to split string into word array containig more than one spaces.
+
