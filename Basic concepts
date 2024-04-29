@@ -1,6 +1,11 @@
 1) define min heap in java using PQ -  PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 2) define max heap in java using PQ -  PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.reverseOrder());
 
+//Arrays
+1. sort 2d array in asc order 
+ Arrays.sort(arr,(a,b)->Integer.compare(a[1],b[1]));
+
+
 //Map ->
 1) count frequencies- 
        Map<Integer,Integer> map = new HashMap<>();
