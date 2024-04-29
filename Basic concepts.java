@@ -12,6 +12,12 @@
         for(Integer itr : map.keySet()){
             arr[map.get(itr)].add(itr);
         }
+
+         for(Integer vals : map.values()){
+           res.add(vals);
+        }
+
+
 2) count frequencies- 
        Map<Integer,Integer> map = new HashMap<>();
         int n = nums.length;
