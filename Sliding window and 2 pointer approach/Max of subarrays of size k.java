@@ -15,3 +15,24 @@ static ArrayList <Integer> max_of_subarrays(int arr[], int n, int k)
          
         return res;
     }
+
+//TC : O(nlogk) or O(n*k)
+static ArrayList <Integer> max_of_subarrays(int arr[], int n, int k)
+    {
+        // Your code here
+        ArrayList<Integer> res= new ArrayList<>();
+       
+        int l=0;
+        PriorityQueue<Integer> pq = new PriorityQueue<>((ind1,ind2)->arr[ind2]-arr[ind1]);
+       
+        for(int r=0;r<n;r++){
+            int start = r-k;
+            if(start>=0){
+                pq.remove(start);
+            }
+            pq.add(r);
+            if(pq.size()==k)
+                res.add(arr[pq.peek()]);
+        }
+        return res;
+    }
