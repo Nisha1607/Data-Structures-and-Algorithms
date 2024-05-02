@@ -46,17 +46,21 @@
 //TC : O(n)
 //SC : O(256)
 
- public int lengthOfLongestSubstring(String s) {
-        int[] hash = new int[256];
-        Arrays.fill(hash,-1);
-        int maxLen =  0;
+ int longestUniqueSubsttr(String S){
         int l=0,r=0;
-        while(r<s.length()){
-            if(hash[s.charAt(r)] >= l){
-                   l= hash[s.charAt(r)]+1;
+        int maxLen=0;
+        int[] freq=new int[26];
+        Arrays.fill(freq,-1);
+        while(r<S.length()){
+            if(freq[S.charAt(r)-'a']!=-1)
+            {
+                if(freq[S.charAt(r)-'a']>=l)
+                {
+                    l=freq[S.charAt(r)-'a']+1;
+                }
             }
-            hash[s.charAt(r)]=r;
             maxLen=Math.max(maxLen,r-l+1);
+             freq[S.charAt(r)-'a']=r;
             r++;
         }
         return maxLen;
