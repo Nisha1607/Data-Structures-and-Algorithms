@@ -1,14 +1,14 @@
 //recursion
 //TC: O(2^n) SC : O(n)
-   int solve(int ind, int[] nums){
-        if(ind==0) return 0;
+ int solve(int ind, int[] nums){
+        if(ind==0) return nums[ind];
         if(ind<0) return 0;
-        int pick = nums[ind-1]+solve(ind-2,nums);
+        int pick = nums[ind]+solve(ind-2,nums);
         int notPick = solve(ind-1,nums);
         return Math.max(pick,notPick);
     }
     public int rob(int[] nums) {
-        return solve(nums.length,nums);
+        return solve(nums.length-1,nums);
     }
 
 //memoization
