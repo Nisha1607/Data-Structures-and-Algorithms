@@ -6,6 +6,7 @@ int solve(int day, int points[][],int last){
   if(day==0){
     int maxPoints = 0;
     for(int task=0;task<3;task++){
+      if(task!=last)
         maxPoints = Math.max(maxPoints,points[0][task]);
     }
     return maxPoints;
@@ -29,6 +30,7 @@ int solve(int day, int points[][],int last,int[][] dp){
   if(day==0){
     int maxPoints = 0;
     for(int task=0;task<3;task++){
+      if(task!=last)
         maxPoints = Math.max(maxPoints,points[0][task]);
     }
     return  dp[day][last] = maxPoints;
