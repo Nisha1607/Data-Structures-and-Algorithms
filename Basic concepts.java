@@ -1,5 +1,21 @@
 1) define min heap in java using PQ -  PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 2) define max heap in java using PQ -  PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.reverseOrder());
+3) if data type of PQ is an object then -
+       i)  min heap - PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> {
+                                                                       if (a[1] > b[1])
+                                                                         return 1;
+                                                                       else
+                                                                         return -1;
+                                                                      });
+
+        ii) max heap - PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> {
+                                                                       if (a[1] < b[1])
+                                                                           return 1;
+                                                                       else
+                                                                           return -1;
+                                                                     });
+
+
 
 //Arrays
 1. sort 2d array in asc order 
