@@ -1,3 +1,6 @@
+//TC : baselength * 3^(toppings.lngth)
+
+
 class Solution {
     int min = Integer.MAX_VALUE;
     public int closestCost(int[] baseCosts, int[] toppingCosts, int target) {
