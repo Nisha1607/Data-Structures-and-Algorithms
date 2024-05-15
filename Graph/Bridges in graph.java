@@ -1,3 +1,6 @@
+// TC : O(V+2E)
+// SC : O(V+2E) + O(3V)
+
 class Solution {
     int timer=1;
     void dfs(int src,int par,ArrayList<ArrayList<Integer>> adj,boolean[] vis,int[] low,
