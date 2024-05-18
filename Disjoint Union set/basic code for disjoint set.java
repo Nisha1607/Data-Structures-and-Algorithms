@@ -2,11 +2,13 @@
 class DisjointSet{
   List<Integer> parent = new ArrayList<>();
   List<Integer> rank = new ArrayList<>();
+  List<Integer> size = new ArrayList<>();
 
   public DisjointSet(int n){
       for(int i=0;i<=n;i++){
           parent.add(i);
           rank.add(0);
+          size.add(1);
       }
   }
 
@@ -27,6 +29,19 @@ class DisjointSet{
     else{
       parent.set(up_u,up_v);
       rank.set(up_v,rank.get(up_v)+1);
+    }
+  }
+
+   public unionByRank(int u,int v){
+    int up_u = findUPar(u);
+    int up_v = findUPar(v);
+    if(size[up_u] < rank[up_v]){
+      parent.set(up_u,up_v);
+      size.set(up_v,size.get(up_v)+size(up_u));
+    }
+    else{
+      parent.set(up_v,up_u);
+      rank.set(up_u,size.get(up_v)+size.get(up_u);
     }
   }
 };
