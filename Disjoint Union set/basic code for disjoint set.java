@@ -32,7 +32,7 @@ class DisjointSet{
     }
   }
 
-   public unionByRank(int u,int v){
+   public unionBySize(int u,int v){
     int up_u = findUPar(u);
     int up_v = findUPar(v);
     if(size[up_u] < rank[up_v]){
