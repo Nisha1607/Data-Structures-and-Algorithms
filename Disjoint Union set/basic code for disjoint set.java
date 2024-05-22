@@ -35,7 +35,7 @@ class DisjointSet{
    public unionBySize(int u,int v){
     int up_u = findUPar(u);
     int up_v = findUPar(v);
-    if(size[up_u] < rank[up_v]){
+    if(size[up_u] < size[up_v]){
       parent.set(up_u,up_v);
       size.set(up_v,size.get(up_v)+size(up_u));
     }
