@@ -41,7 +41,7 @@ class DisjointSet{
     }
     else{
       parent.set(up_v,up_u);
-      rank.set(up_u,size.get(up_v)+size.get(up_u);
+      size.set(up_u,size.get(up_v)+size.get(up_u);
     }
   }
 };
