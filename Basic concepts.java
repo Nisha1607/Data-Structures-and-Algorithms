@@ -21,6 +21,11 @@
 1. sort 2d array in asc order 
  Arrays.sort(arr,(a,b)->Integer.compare(a[1],b[1]));
 
+//Sorting 2D array - 
+  Arrays.sort(arr, new Comparator<int[]>(){
+        public int compare(int[] i1, int[] i2) {
+            return i1[1] - i2[1];
+        }
 
 //Map ->
 1) Iterate map - 
