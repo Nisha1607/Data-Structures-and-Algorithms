@@ -77,3 +77,9 @@
 3) Strings -
         String[] words = s.trim().split("\\s+"); // to split string into word array containig more than one spaces.
 
+         //to convert string to char[]
+         char[] chars = word.toCharArray();
+
+         //to convert char[] to string
+         String sortedWord = new String(chars);
+
